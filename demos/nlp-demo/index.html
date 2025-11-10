@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NLP Demo</title>
+    <style>
+        body { font-family: Arial; padding: 20px; max-width: 900px; margin: 0 auto; background: #f5f5f5; }
+        .container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        textarea { width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd; font-size: 14px; }
+        button { background: #0ea5e9; color: white; padding: 12px 30px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; margin: 10px 5px; }
+        button:hover { background: #0284c7; }
+        .result { margin-top: 20px; padding: 15px; background: #e0f2fe; border-radius: 5px; display: none; }
+        .entity { display: inline-block; padding: 2px 8px; margin: 2px; border-radius: 3px; color: white; font-size: 13px; }
+        .organization { background: #f87171; }
+        .person { background: #4ade80; }
+        .tech { background: #60a5fa; }
+        .code-snippet { background: #1e293b; color: #5eead4; padding: 15px; border-radius: 5px; overflow-x: auto; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🤖 Demo: Procesamiento de Lenguaje Natural</h2>
+        <p><strong>Simulación de tu TFG:</strong> Codificación automática de términos técnicos usando modelos de lenguaje.</p>
+        
+        <textarea id="textInput" rows="6" placeholder="Introduce texto técnico para analizar... Ej: 'Docker es una plataforma de contenedores que usa namespaces de Linux. El machine learning requiere GPUs NVIDIA CUDA.'"></textarea>
+        
+        <div>
+            <button onclick="analyzeText()">🔍 Analizar Términos</button>
+            <button onclick="generateCode()">📝 Generar Código</button>
+            <button onclick="clearResults()">🗑️ Limpiar</button>
+        </div>
+        
+        <div id="results" class="result">
+            <h3>Resultados:</h3>
+            <div id="entities"></div>
+            <h4>Código generado:</h4>
+            <div id="code" class="code-snippet">// El código aparecerá aquí...</div>
+            <p id="confidence" style="margin-top: 10px; color: #666;"></p>
+        </div>
+    </div>
+
+    <script>
+        const techTerms = {
+            'docker': {category: 'tech', code: 'docker run -d -p 8080:80 nginx'},
+            'kubernetes': {category: 'tech', code: 'kubectl apply -f deployment.yaml'},
+            'machine learning': {category: 'tech', code: 'from sklearn.ensemble import RandomForestClassifier'},
+            'gpu': {category: 'tech', code: 'torch.cuda.is_available()'},
+            'cuda': {category: 'tech', code: 'nvcc --version'},
+            'python': {category: 'tech', code: 'python -m venv env'},
+            'javascript': {category: 'tech', code: 'npm install express'},
+            'sql': {category: 'tech', code: 'SELECT * FROM users WHERE id = 1;'},
+            'api': {category: 'tech', code: 'app.get("/api/data", (req, res) => {});'},
+            'linux': {category: 'tech', code: 'chmod +x script.sh'},
+            'tensorflow': {category: 'tech', code: 'import tensorflow as tf'},
+            'pytorch': {category: 'tech', code: 'torch.nn.Linear(in_features, out_features)'}
+        };
+
+        function analyzeText() {
+            const text = document.getElementById('textInput').value.toLowerCase();
+            const resultsDiv = document.getElementById('results');
+            const entitiesDiv = document.getElementById('entities');
+            
+            entitiesDiv.innerHTML = '';
+            resultsDiv.style.display = 'block';
+            
+            let foundTerms = [];
+            
+            for(const [term, data] of Object.entries(techTerms)) {
+                if(text.includes(term)) {
+                    foundTerms.push(term);
+                    const span = document.createElement('span');
+                    span.className = `entity ${data.category}`;
+                    span.textContent = term.toUpperCase();
+                    entitiesDiv.appendChild(span);
+                }
+            }
+            
+            if(foundTerms.length === 0) {
+                entitiesDiv.innerHTML = '<p>No se encontraron términos técnicos conocidos.</p>';
+            }
+            
+            // Simular confianza del modelo
+            const confidence = Math.floor(Math.random() * 20) + 80;
+            document.getElementById('confidence').textContent = `Confianza del modelo: ${confidence}%`;
+        }
+
+        function generateCode() {
+            const text = document.getElementById('textInput').value.toLowerCase();
+            const codeDiv = document.getElementById('code');
+            
+            for(const [term, data] of Object.entries(techTerms)) {
+                if(text.includes(term)) {
+                    codeDiv.textContent = data.code;
+                    document.getElementById('results').style.display = 'block';
+                    return;
+                }
+            }
+            
+            codeDiv.textContent = '# No se pudo generar código para el texto proporcionado';
+        }
+
+        function clearResults() {
+            document.getElementById('results').style.display = 'none';
+            document.getElementById('textInput').value = '';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>León Corbacho - Ingeniero Informático</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">León Corbacho</div>
+            <ul>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="cv.pdf" target="_blank">CV PDF</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Ingeniero Informático</h1>
+            <h2>Especializado en IA, Sistemas de Información y Bases de Datos</h2>
+            <p>Transformando datos en soluciones inteligentes. +5 años de proyectos universitarios de alto impacto con industria.</p>
+            <div class="hero-buttons">
+                <a href="#proyectos" class="btn-primary">Ver Proyectos</a>
+                <a href="https://github.com/Leonidascr103" target="_blank" class="btn-secondary">GitHub</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400" alt="Tech Illustration">
+        </div>
+    </section>
+
+    <section id="proyectos" class="proyectos">
+        <h2>Proyectos Destacados</h2>
+        <div class="proyectos-grid">
+            
+            <!-- PROYECTO 1: TFG -->
+            <div class="proyecto-card">
+                <div class="proyecto-header">
+                    <h3>Modelos NLP para Gestión de Información</h3>
+                    <span class="badge">TFG</span>
+                </div>
+                <p>Desarrollo de aplicación para procesamiento del lenguaje natural en colaboración con Fujitsu y Algentransit. Codificación automática de términos técnicos.</p>
+                <div class="tecnologias">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">LangChain</span>
+                    <span class="tech-tag">HuggingFace</span>
+                    <span class="tech-tag">Docker</span>
+                </div>
+                <div class="proyecto-links">
+                    <a href="https://github.com/Leonidascr103/tfg-nlp" target="_blank" class="link-btn">Ver Código</a>
+                    <a href="#demo-nlp" class="link-btn demo-btn">Ver Demo</a>
+                </div>
+                <!-- DEMO INTERACTIVA EMBEBIDA -->
+                <div id="demo-nlp" class="demo-container">
+                    <iframe src="demos/nlp-demo/index.html" frameborder="0"></iframe>
+                </div>
+            </div>
+
+            <!-- PROYECTO 2: Agentes -->
+            <div class="proyecto-card">
+                <div class="proyecto-header">
+                    <h3>Agentes Inteligentes para Pathfinding</h3>
+                    <span class="badge">IA</span>
+                </div>
+                <p>Agentes reactivos/deliberativos con algoritmos A* y estrategias heurísticas optimizadas. Reducción de tiempo de cálculo en 30%.</p>
+                <div class="tecnologias">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">C++</span>
+                    <span class="tech-tag">Algoritmos</span>
+                </div>
+                <div class="proyecto-links">
+                    <a href="https://github.com/Leonidascr103/pathfinding-agents" target="_blank" class="link-btn">Ver Código</a>
+                    <a href="#demo-path" class="link-btn demo-btn">Ver Demo</a>
+                </div>
+                <!-- DEMO INTERACTIVA -->
+                <div id="demo-path" class="demo-container">
+                    <iframe src="demos/pathfinding-demo/index.html" frameborder="0"></iframe>
+                </div>
+            </div>
+
+            <!-- PROYECTO 3: SRI -->
+            <div class="proyecto-card">
+                <div class="proyecto-header">
+                    <h3>Motor de Búsqueda con Indexing Invertido</h3>
+                    <span class="badge">Data</span>
+                </div>
+                <p>Sistema de Recuperación de Información con web scraping y ranking TF-IDF. Dataset de 10k+ documentos técnicos.</p>
+                <div class="tecnologias">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Elasticsearch</span>
+                    <span class="tech-tag">Web Scraping</span>
+                    <span class="tech-tag">MySQL</span>
+                </div>
+                <div class="proyecto-links">
+                    <a href="https://github.com/Leonidascr103/sri-engine" target="_blank" class="link-btn">Ver Código</a>
+                    <a href="#demo-sri" class="link-btn demo-btn">Ver Demo</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <h2>Habilidades Técnicas</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Programación</h3>
+                <div class="skill-bars">
+                    <div class="skill">
+                        <span>Python</span>
+                        <div class="bar"><div class="fill" style="width: 90%"></div></div>
+                    </div>
+                    <div class="skill">
+                        <span>Java</span>
+                        <div class="bar"><div class="fill" style="width: 80%"></div></div>
+                    </div>
+                    <div class="skill">
+                        <span>SQL</span>
+                        <div class="bar"><div class="fill" style="width: 85%"></div></div>
+                    </div>
+                    <div class="skill">
+                        <span>C++</span>
+                        <div class="bar"><div class="fill" style="width: 75%"></div></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3>IA/ML</h3>
+                <div class="skill-bars">
+                    <div class="skill">
+                        <span>LangChain</span>
+                        <div class="bar"><div class="fill" style="width: 85%"></div></div>
+                    </div>
+                    <div class="skill">
+                        <span>HuggingFace</span>
+                        <div class="bar"><div class="fill" style="width: 80%"></div></div>
+                    </div>
+                    <div class="skill">
+                        <span>Pandas/NumPy</span>
+                        <div class="bar"><div class="fill" style="width: 90%"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <h2>Contáctame</h2>
+        <div class="contact-links">
+            <a href="mailto:leonpompora@gmail.com">📧 leonpompora@gmail.com</a>
+            <a href="https://linkedin.com/in/leon-corbacho-rodríguez-34626732" target="_blank">💼 LinkedIn</a>
+            <a href="https://github.com/Leonidascr103" target="_blank">💻 GitHub</a>
+            <a href="tel:+34671289546">📱 +34 671 28 95 46</a>
+        </div>
+        <p>&copy; 2025 León Corbacho Rodríguez | Ingeniero Informático</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
